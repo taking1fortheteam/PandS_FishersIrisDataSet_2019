@@ -1,0 +1,2 @@
+THis is the initial log after many upsets to this point. I had previously started with great intentions but found that working with Git Hub was creating me great problems. I believe the issue was that I was unable to synd a repository I had created in Git Hub and then to sync that repository with a repository I had on my own machine locally. So hopefully this is now working. Only 2 weeks to go so it better be correct.
+
