@@ -19,4 +19,8 @@ Buzz words in modern society are: Internet of THings (IoT), Data Lake, Big Data,
 
 Because th is data set has been in circulation since 1936, it has been exhaustively used time and time again to assit researchers to map out the data, create plots from it, anayse it for others to interpret the data based on what their interest of the data set is. Is it petal length? Or Sepal width? THese are the easily got to results of a simple analysis that can be conducted almost by studying the data set by sight alone. However for a more indepth analysis we need to look at the data set from its entirity, not discounting any one trait of any of the samples or flowers taken, so we can truly represent the flowers in a form that is easily understood by you and me and other fellow researchers on the Iris Data Set. 
 
+One such analysis is by a research fellow :
+https://diwashrestha.com/2017/09/18/machine-learning-on-iris/
+
+
 Until now I have commented on the data set and what is is comprised of, but i have not discussed the vastness of the data or the 
