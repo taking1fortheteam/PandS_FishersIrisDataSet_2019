@@ -1,0 +1,15 @@
+Part one of the assignment is to research the Fishser Iris Data Set and to write a summary about it. 
+
+Research:
+Ronald Fisher (17 February 1890 – 29 July 1962) was a renowned statistician and a genetisist, with descriptions of his abilities coming about in 1998 publications by Alders Hand :"a genius who almost single-handedly created the foundations for modern statistical science". 
+
+At the age of 46 he produced the Fisher's Iris Data Set as an example of discriminant analysis - "statistical analysis using a discriminant function to assign data to one of two or more groups." THis data set, while simple in nature, is used through out statistical analysis and machine learning. 
+
+THE Iris Data Set is simple in nature. It consists of data gathered from 3 different type Iris flowers - Iris Setosa, Iris virginica, Iris versicolor - picked on the same day from the same area by the same person and measured using the same aparatus. You couldn't get more regimented! Fifty samples of each type flower was gathered and measured thus producing 150 samples of data with which to perform analysis. WHat was measured were the length and width of the sepals and petals. FOr the untrained horticulturalists in the audience, a sepal is part of the stem of the flower, usually the same colour as the stem that may position itself between the petals of the flowers. THe Petal is one of the leaves if you were, of the flower usually colourful in nature. A picture is below:
+
+THe data set consists of 150 lines with 5 parameters per line: Sepal length, sepal width, petal length, petal width (all in cm) and species.
+
+50	5.0	3.3	1.4	0.2	I. setosa
+51	7.0	3.2	4.7	1.4	I. versicolor
+101	6.3	3.3	6.0	2.5	I. virginica
+
