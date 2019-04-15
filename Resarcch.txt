@@ -13,3 +13,10 @@ THe data set consists of 150 lines with 5 parameters per line: Sepal length, sep
 51	7.0	3.2	4.7	1.4	I. versicolor
 101	6.3	3.3	6.0	2.5	I. virginica
 
+So we now know in a very simple form what the data set entials, but what we don;t know is why is this data set of 3 species of flower important to us in this data analystics course. What is the relevance? Brace for impact!
+
+Buzz words in modern society are: Internet of THings (IoT), Data Lake, Big Data, Data Analysis, Machine learning, Artificial Intelligence (AI) and the dreaded Skynet! What is the point in making this write up so boring and like any other write up without having a touch of humour? Yes I know Fischer is now dead, but he played a pivotal role in getting to where we are today. No matter what path we take in life we need to start somewhere. "Small Steps Ellie", "one step at a time", "learn to walk before you can run". WHat this data set allows us do is to take a simple experiment and to use the output fro that exeriment as an input to various analysis techniques. WIth only 3 species, 4 data points per species and only 50 flowers per species under Dr. Fishers microscope, this gives us a series of datapoints we can easily visualise, understand and work with as the data aset is not large by any means. 
+
+Because th is data set has been in circulation since 1936, it has been exhaustively used time and time again to assit researchers to map out the data, create plots from it, anayse it for others to interpret the data based on what their interest of the data set is. Is it petal length? Or Sepal width? THese are the easily got to results of a simple analysis that can be conducted almost by studying the data set by sight alone. However for a more indepth analysis we need to look at the data set from its entirity, not discounting any one trait of any of the samples or flowers taken, so we can truly represent the flowers in a form that is easily understood by you and me and other fellow researchers on the Iris Data Set. 
+
+Until now I have commented on the data set and what is is comprised of, but i have not discussed the vastness of the data or the 
