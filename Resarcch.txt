@@ -23,4 +23,5 @@ One such analysis is by a research fellow :
 https://diwashrestha.com/2017/09/18/machine-learning-on-iris/
 
 
-Until now I have commented on the data set and what is is comprised of, but i have not discussed the vastness of the data or the 
+Until now I have commented on the data set and what is is comprised of, but i have not discussed the vastness of what this data could potentially be used for. 
+
