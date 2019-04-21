@@ -7,16 +7,8 @@ import numpy as np                      # Importing numpy for analyzing the data
 import matplotlib.pyplot as plt         # Importing pyplot from matplotlib for plotting the data
 from sklearn.datasets import load_iris  #2 THis line of code retrieves the data set from scikit database hosting site
 iris = load_iris()                      #2 Let iris equal to the load iris function
-from PIL import Image                   # having to use the Python Imaging Library to import and display images in Python.                                                                             
-from statistics import mean             # import mean function from statistics
-
-
-def average(a, n):                       # Function that return average of an array to 2 decimal places 
-    sum = 0                                 # sum is 0 to begin with
-    for i in range(n):                      # for i is in the range of the elements (n) of the array
-        sum += a[i]                             # add each of the elements together as it progresses through the array
-    return round(sum/n, 2);                 # return a value (sum divided by the number of elements in the array) that is rounded to 2 decimal places, 
-
+from PIL import Image                   # having to use the Python Imaging Library to import and display images in Python.          
+import pylab 
 
 
 
@@ -36,71 +28,137 @@ print(Sepal_Length,'\n\n')              # Print the values in the Sepal_Length a
 print('The following figures are the values of the Sepal Width of the Iris Setosa flower:')  # Print the text
 print(Sepal_Width,'\n\n')               # Print the values in the Sepal_Width array (50 values in total)...followed by 2 carriage returns                                                    
 
+# Same goes for Iris Versicolor
+
+                                        # I am just filling up an array with the specific data for each parameter associated with each breed 
+Sepal_Length = Iris_Versicolor[:, 0]        # In this case I am setting Sepal_Length equal to each value of the array (all rows (of the 0-50), column 0)
+Sepal_Width = Iris_Versicolor[:, 1]         # Here I am setting Sepal Width equal to each value of the array (all rows (of the 0 to 50), column 1)  
+
+                                        # As verification I wanto ensure I have extracted the data correctly so Iam printing it to sreen in these lines:
+print('The following figures are the values of the Sepal Length of the Iris Versicolor flower:') # Print the text
+print(Sepal_Length,'\n\n')              # Print the values in the Sepal_Length array (50 values in total)...followed by 2 carriage returns                                                    
+print('The following figures are the values of the Sepal Width of the Iris Versicolor flower:')  # Print the text
+print(Sepal_Width,'\n\n')               # Print the values in the Sepal_Width array (50 values in total)...followed by 2 carriage returns                                                    
+
+
+# And again for Iris Virginica
+
+
+                                        # I am just filling up an array with the specific data for each parameter associated with each breed 
+Sepal_Length = Iris_Virginica[:, 0]        # In this case I am setting Sepal_Length equal to each value of the array (all rows (of the 0-50), column 0)
+Sepal_Width = Iris_Virginica[:, 1]         # Here I am setting Sepal Width equal to each value of the array (all rows (of the 0 to 50), column 1)  
+
+                                        # As verification I wanto ensure I have extracted the data correctly so Iam printing it to sreen in these lines:
+print('The following figures are the values of the Sepal Length of the Iris Virginica flower:') # Print the text
+print(Sepal_Length,'\n\n')              # Print the values in the Sepal_Length array (50 values in total)...followed by 2 carriage returns                                                    
+print('The following figures are the values of the Sepal Width of the Iris Virginica flower:')  # Print the text
+print(Sepal_Width,'\n\n')               # Print the values in the Sepal_Width array (50 values in total)...followed by 2 carriage returns                                                    
+
 
 ########Show image as a intro:
 
 # Image saved from : https://i.ytimg.com/vi/ywIWUfjPCyY/maxresdefault.jpg
-img = Image.open('SepalPetal.jpg') # Open thse image from local machinre
-img.show()  # Show the image using default image viewer on local machine. 
 
-
-
-input("Press Enter to continue...")
+#####img = Image.open('SepalPetal.jpg') # Open thse image from local machinre
+#####img.show()  # Show the image using default image viewer on local machine. 
+#####input("Press Enter to continue...")
 
 
 # Lets try and plot the data of Sepal Length against Width
-
-plt.title('This is a plot of the Sepal Length Versus Width')
+fig = plt.figure(1, figsize=(5, 5))
+plt.title('Sepal Length Versus Width of the Iris Setosa Flower', fontsize=10, fontweight='bold')
 plt.xlabel('Sepal Length')
 plt.ylabel('Sepal Width')
-fig = plt.figure(1, figsize=(12, 12))
+plt.grid(True)
 
 
-plt.scatter(Iris_Setosa[:, 0], Iris_Setosa[:, 1], c="red", cmap=plt.cm.Set1, edgecolor='k')
-#plt.scatter(Iris_Versicolor[:, 0], Iris_Versicolor[:, 1], c="blue", cmap=plt.cm.Set1, edgecolor='k')
-#plt.scatter(Iris_Virginica[:, 0], Iris_Virginica[:, 1], c="green", cmap=plt.cm.Set1, edgecolor='k')
+'''from matplot lib resource online:
 
+matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, *, data=None, **kwargs)[source]
 
-# Need to determine the max value of each of the elements in the array
-
-print('\n')
-print('Max ELement of Sepal Length of Iris Setosa is:', max(Iris_Setosa[:,0])) # Print Max Value of Sepal Length of Iris Setosa 
-print('Min ELement of Sepal Length of Iris Setosa is:', min(Iris_Setosa[:,0])) # Print Min Value of Sepal Length of Iris Setosa 
-
-
-arr = (Iris_Setosa[:,0])
-n = len(arr) 
-print('The average of the Sepal Length of Iris Setosa is:', average(arr, n))
+'''
+plt.axvline(np.mean(Iris_Setosa[:,0]), color='m', linestyle='dashdot', linewidth=1, label="mean")
+plt.axvline(max(Iris_Setosa[:,0]), color='r', linestyle='dashed', linewidth=1, label="max")
+plt.axvline(min(Iris_Setosa[:,0]), color='b', linestyle='dotted', linewidth=1, label = "min")
+plt.scatter(Iris_Setosa[:, 0], Iris_Setosa[:, 1], marker = "v", c="red", cmap=plt.cm.Set1, edgecolor='k') # plot scatter - all array values in column 0, marker is a Square, CColour is blue, 
+plt.legend()
 
 # plot the average value on the scatter chart@: 
-plt.axvline(average(arr, n), color='m', linestyle='dashdot', linewidth=1)
-plt.axvline(max(Iris_Setosa[:,0]), color='r', linestyle='dashed', linewidth=1)
-plt.axvline(min(Iris_Setosa[:,0]), color='b', linestyle='dashed', linewidth=1)
 
+plt.axhline(np.mean(Iris_Setosa[:,1]), color='m', linestyle='dashdot', linewidth=1)
+plt.axhline(max(Iris_Setosa[:,1]), color='r', linestyle='dashed', linewidth=1)
+plt.axhline(min(Iris_Setosa[:,1]), color='b', linestyle='dotted', linewidth=1)
 
+#plt.show()
+fig.tight_layout()
 
+# Lets try and plot the data of Sepal Length against Width os Iris Versicolor FLower
 
+fig = plt.figure(2, figsize=(5, 5))
+plt.title('Sepal Length Versus Width of the Iris Versicolor Flower', fontsize=10, fontweight='bold')
+plt.xlabel('Sepal Length')
+plt.ylabel('Sepal Width')
+plt.grid(True)
 
-#print('Average of the list is :', Average)
-#print('Sum of the array is', sum)
-#print('Len of thr array is', len)
-#print('Average of the length is:', round(mean(Iris_Setosa[:,0])))
-
-
-print('Max ELement of Sepal Width of Iris Setosa is:', max(Iris_Setosa[:,1])) # Print Max value of Sepal Width of Iris Setosa
-print('Min ELement of Sepal Width of Iris Setosa is:', min(Iris_Setosa[:,1])) # Print Min value of Sepal Width of Iris Setosa
-arr = (Iris_Setosa[:,1])
-n = len(arr) 
-print('The average of the Sepal Width is:', average(arr, n))                  # Print the average value of Sepal Width for Iris Setosa 
-#Print the average or mean of the Y axis:
-plt.axhline(average(arr, n), color='m', linestyle='dashdot', linewidth=1)      # Plot the average value for the Sepal Width as a horizontal line, colour - m for magenta, dashed linestyle 
+plt.axvline(np.mean(Iris_Versicolor[:,0]), color='m', linestyle='dashdot', linewidth=1, label = "mean")
+plt.axvline(max(Iris_Versicolor[:,0]), color='r', linestyle='dashed', linewidth=1, label = "max")
+plt.axvline(min(Iris_Versicolor[:,0]), color='b', linestyle='dotted', linewidth=1, label = "min")
+plt.scatter(Iris_Versicolor[:, 0], Iris_Versicolor[:, 1], marker = "o", c="blue", cmap=plt.cm.Set1, edgecolor='k') # plot scatter - all array values in column 0, marker is a Square, CColour is blue, 
+plt.legend()
 
 # I would like now to have on the one graph the max min values on both axes so that it is easily spoken about.
-plt.axhline(max(Iris_Setosa[:,1]), color='r', linestyle='dashed', linewidth=1)
-plt.axhline(min(Iris_Setosa[:,1]), color='b', linestyle='dashed', linewidth=1)
+plt.axhline(np.mean(Iris_Versicolor[:,1]), color='m', linestyle='dashdot', linewidth=1)
+plt.axhline(max(Iris_Versicolor[:,1]), color='r', linestyle='dashed', linewidth=1)
+plt.axhline(min(Iris_Versicolor[:,1]), color='b', linestyle='dotted', linewidth=1)
 
 
+#plt.show(2)
+#plt.subplot(1, 2, 2)
+fig.tight_layout()
+
+
+
+# Lets try and plot the data of Sepal Length against Width os Iris Virginica FLower
+
+fig = plt.figure(3, figsize=(5, 5))
+plt.title('Sepal Length versus Width of the Iris Virginica Flower', fontsize=10, fontweight='bold')
+plt.xlabel('Sepal Length')
+plt.ylabel('Sepal Width')
+plt.grid(True)
+
+plt.axvline(np.mean(Iris_Virginica[:,0]), color='m', linestyle='dashdot', linewidth=1, label = "mean")
+plt.axvline(max(Iris_Virginica[:,0]), color='r', linestyle='dashed', linewidth=1, label = "max")
+plt.axvline(min(Iris_Virginica[:,0]), color='b', linestyle='dotted', linewidth=1, label = "min")
+plt.scatter(Iris_Virginica[:, 0], Iris_Virginica[:, 1], marker = "s", c="green", cmap=plt.cm.Set1, edgecolor='k') # plot scatter - all array values in column 0, marker is a Square, CColour is blue, 
+plt.legend()
+
+# I would like now to have on the one graph the max min values on both axes so that it is easily spoken about.
+plt.axhline(np.mean(Iris_Virginica[:,1]), color='m', linestyle='dashdot', linewidth=1)
+plt.axhline(max(Iris_Virginica[:,1]), color='r', linestyle='dashed', linewidth=1)
+plt.axhline(min(Iris_Virginica[:,1]), color='b', linestyle='dotted', linewidth=1)
+
+#plt.show(3)
+fig.tight_layout()
+
+#fig, ax = plt.subplots()
+#mngr = plt.get_current_fig_manager()
+# to put it into the upper left corner for example:
+#mngr.window.setGeometry(50,100,640, 545)
+
+
+#geom = mngr.window.geometry()
+#x,y,dx,dy = geom.getRect()
+
+#mngr.window.setGeometry(newX, newY, dx, dy)
+
+#plt.grid(True)
+#plt.show()
+#plt.grid(True)
+#plt.show(2)
+#plt.grid(True)
+#plt.show(3)
 plt.show()
+#plt.show()
 
 # 1 https://apmonitor.com/che263/index.php/Main/PythonDataAnalysis
 
