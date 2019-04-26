@@ -12,8 +12,13 @@ import pylab
 
                                         # By using iris.data -> this only looks at the data arrays within the iris file taken from source.
 Iris_Setosa = (iris.data[0:50])         # Iris Setosa data is contained in the first 50 elements of the array 
-Iris_Versicolor = (iris.data[51:100])   # Iris Versicolor data is contained in the elements 50 - 100 of the array 
-Iris_Virginica = (iris.data[101:150])   # Iris Virginica data is contained in elements 100 - 150 of the array 
+Iris_Versicolor = (iris.data[50:100])   # Iris Versicolor data is contained in the elements 50 - 100 of the array 
+Iris_Virginica = (iris.data[100:150])   # Iris Virginica data is contained in elements 100 - 150 of the array 
+
+print("lenght of list 1 is", len(Iris_Setosa))
+print("lenght of list 2 is", len(Iris_Versicolor))
+
+print("lenght of list 3 is", len(Iris_Virginica))
 
                                         # I am just filling up an array with the specific data for each parameter associated with each breed 
 Sepal_Length = Iris_Setosa[:, 0]        # In this case I am setting Sepal_Length equal to each value of the array (all rows (of the 0-50), column 0)
@@ -126,8 +131,8 @@ plt.legend(loc = "upper left")
 plt.axhline(np.mean(Iris_Virginica[:,1]), color='m', linestyle='dashdot', linewidth=1)                      # plot a horizontal dash dot line of the mean with colour magenta
 plt.axhline(max(Iris_Virginica[:,1]), color='r', linestyle='dashed', linewidth=1)                           # plot a horizontal line of maximum length of Virginica flower - dashed colour red
 plt.axhline(min(Iris_Virginica[:,1]), color='b', linestyle='dotted', linewidth=1)                           # plot a horizontal line of minimum length of Virginica flower - dotted colour blue
-
-plt.show()                                                                                                  # show the plot
+plt.savefig('Figure2.jpg')
+#plt.show()                                                                                                  # show the plot
 
 #input("Press Enter to continue...")                                                                         # wait for user to enter a character
 
@@ -143,19 +148,16 @@ plt.xlabel('Sepal Length')                                                      
 plt.ylabel('Sepal Width')                                                                                   # plot y axis label
 plt.grid(True)                                                                                              # plot the grid
 
-#plt.axvline(np.mean(Iris_Versicolor[:,0]), color='m', linestyle='dashdot', linewidth=1, label = "mean")
-#plt.axvline(max(Iris_Versicolor[:,0]), color='r', linestyle='dashed', linewidth=1, label = "max")
-#plt.axvline(min(Iris_Versicolor[:,0]), color='b', linestyle='dotted', linewidth=1, label = "min")
 plt.scatter(Iris_Setosa[:, 0], Iris_Setosa[:, 1], marker = "v", c="red", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Setosa")                # plot scatter - all array values in column 0, marker is a Square, Colour is red
 plt.scatter(Iris_Versicolor[:, 0], Iris_Versicolor[:, 1], marker = "o", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Square, Colour is blue 
 plt.scatter(Iris_Virginica[:, 0], Iris_Virginica[:, 1], marker = "s", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Square, Colour is green 
 plt.legend(loc = "upper left")                                                                                               # plot the legend
+plt.savefig('Figure3.jpg')
+#plt.show()                                                                                                  # show the plot
 
-plt.show()                                                                                                  # show the plot
+
 # I would like now to have on the one graph the max min values on both axes so that it is easily spoken about.
-#plt.axhline(np.mean(Iris_Versicolor[:,1]), color='m', linestyle='dashdot', linewidth=1)
-#plt.axhline(max(Iris_Versicolor[:,1]), color='r', linestyle='dashed', linewidth=1)
-#plt.axhline(min(Iris_Versicolor[:,1]), color='b', linestyle='dotted', linewidth=1)
+
 
 '''
 NExt up I would like to take a look at teh Petal Width versus Petal Length of the 3 varieties. Initially I will plot as individual plots on the same figure.
@@ -176,9 +178,6 @@ Petal_Width = Iris_Versicolor[:, 3]         # Here I am setting Petal Width equa
 
 Petal_Length = Iris_Virginica[:, 2]        # In this case I am setting Petal_Length equal to each value of the array (all rows (of the 0-50), column 2)
 Petal_Width = Iris_Virginica[:, 3]         # Here I am setting Petal Width equal to each value of the array (all rows (of the 0 to 50), column 3)  
-
-
-
 
 
 # Lets try and plot the data of Petal Length against Width
@@ -241,8 +240,8 @@ plt.legend(loc = "upper left")
 plt.axhline(np.mean(Iris_Virginica[:,3]), color='m', linestyle='dashdot', linewidth=1)                      # plot a horizontal dash dot line of the mean with colour magenta
 plt.axhline(max(Iris_Virginica[:,3]), color='r', linestyle='dashed', linewidth=1)                           # plot a horizontal line of maximum length of Virginica flower - dashed colour red
 plt.axhline(min(Iris_Virginica[:,3]), color='b', linestyle='dotted', linewidth=1)                           # plot a horizontal line of minimum length of Virginica flower - dotted colour blue
-
-plt.show()                                                                                                  # show the plot
+plt.savefig('Figure4.jpg')
+#plt.show()                                                                                                  # show the plot
 
 #input("Press Enter to continue...")                                                                         # wait for user to enter a character
 
@@ -258,10 +257,88 @@ plt.scatter(Iris_Setosa[:, 2], Iris_Setosa[:, 3], marker = "v", c="red", cmap=pl
 plt.scatter(Iris_Versicolor[:, 2], Iris_Versicolor[:, 3], marker = "o", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Square, Colour is blue 
 plt.scatter(Iris_Virginica[:, 2], Iris_Virginica[:, 3], marker = "s", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Square, Colour is green 
 plt.legend(loc = "upper left")                                                                                               # plot the legend
+plt.savefig('Figure5.jpg')
+#plt.show()                                                                                                  # show the plot
 
-plt.show()                                                                                                  # show the plot
+'''
+Now we need to start looking at the results from viewing Sepal width with Petal width to see fi there is anything to be gained from this
+Individually it makes not much sense to viw the data so in the following plot I will include all parameters in the data set and set out in 
+a 4 X 4 grid
+'''
+plt.subplot(1, 3, 1)                                                                                        # plot a subplot with 1 row 3 columns and we are working on 3rd element (right)
+#plt.title('Petal Length versus Width of the Iris Virginica Flower', fontsize=10, fontweight='bold')         # plot the title of the plot
+#plt.xlabel('Petal Length')                                                                                  # plot x axis label
+plt.ylabel('Sepal Width')                                                                                   # plot y axis label
+#plt.grid(True)                                                                                              # plot the grid
+plt.scatter(Iris_Setosa[:, 0], Iris_Setosa[:, 0], marker = ".", c="red", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Setosa")                # plot scatter - all array values in column 0, marker is a Pixel, Colour is red
+
+plt.subplot(1,3,2)
+plt.scatter(Iris_Setosa[:, 0], Iris_Versicolor[:, 0], marker = ".", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Pixel, Colour is blue 
+
+plt.subplot(1,3,3)
+plt.scatter(Iris_Setosa[:, 0], Iris_Virginica[:, 0], marker = ".", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Pixel, Colour is green 
 
 
+
+'''
+plt.subplot(2,3,1)                                                                                        # plot a subplot with 1 row 3 columns and we are working on 3rd element (right)
+#plt.title('Petal Length versus Width of the Iris Virginica Flower', fontsize=10, fontweight='bold')         # plot the title of the plot
+#plt.xlabel('Petal Length')                                                                                  # plot x axis label
+plt.ylabel('Sepal Width')                                                                                   # plot y axis label
+#plt.grid(True)                                                                                              # plot the grid
+plt.scatter(Iris_Setosa[:, 1], Iris_Setosa[:, 0], marker = ".", c="red", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Setosa")                # plot scatter - all array values in column 0, marker is a Pixel, Colour is red
+
+plt.subplot(2,3,2)
+plt.scatter(Iris_Setosa[:, 1], Iris_Versicolor[:, 0], marker = ".", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Pixel, Colour is blue 
+
+plt.subplot(2,3,3)
+plt.scatter(Iris_Setosa[:, 1], Iris_Virginica[:, 0], marker = ".", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Pixel, Colour is green 
+
+'''
+
+
+
+
+'''
+plt.subplot(4, 4, 2) 
+plt.scatter(Iris_Setosa[:, 1], Iris_Setosa[:, 1], marker = ".", c="red", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Setosa")                # plot scatter - all array values in column 0, marker is a Pixel, Colour is red
+plt.scatter(Iris_Setosa[:, 1], Iris_Versicolor[:, 1], marker = ".", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Pixel, Colour is blue 
+plt.scatter(Iris_Setosa[:, 1], Iris_Virginica[:, 1], marker = ".", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Pixel, Colour is green 
+
+
+
+plt.subplot(4, 4, 3) 
+plt.scatter(Iris_Setosa[:, 2], Iris_Setosa[:, 2], marker = ".", c="red", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Setosa")                # plot scatter - all array values in column 0, marker is a Pixel, Colour is red
+plt.scatter(Iris_Setosa[:, 2], Iris_Versicolor[:, 2], marker = ".", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Pixel, Colour is blue 
+plt.scatter(Iris_Setosa[:, 2], Iris_Virginica[:, 2], marker = ".", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Pixel, Colour is green 
+
+plt.subplot(4, 4, 4) 
+plt.scatter(Iris_Setosa[:, 3], Iris_Setosa[:, 3], marker = ".", c="red", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Setosa")                # plot scatter - all array values in column 0, marker is a Pixel, Colour is red
+plt.scatter(Iris_Setosa[:, 3], Iris_Versicolor[:, 3], marker = ".", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Pixel, Colour is blue 
+plt.scatter(Iris_Setosa[:, 3], Iris_Virginica[:, 3], marker = ".", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Pixel, Colour is green 
+
+'''
+
+#plt.scatter(Iris_Setosa[:, 0], Iris_Setosa[:, 1], marker = "v", c="red", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Setosa")                # plot scatter - all array values in column 0, marker is a Square, Colour is red
+
+
+#plt.subplot(4, 4, 2) 
+
+#plt.scatter(Iris_Versicolor[:, 2], Iris_Versicolor[:, 3], marker = "o", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Square, Colour is blue 
+#plt.scatter(Iris_Versicolor[:, 2], Iris_Versicolor[:, 3], marker = "o", c="blue", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Versicolor")   # plot scatter - all array values in column 0, marker is a Square, Colour is blue 
+#plt.scatter(Iris_Virginica[:, 2], Iris_Virginica[:, 3], marker = "s", c="green", cmap=plt.cm.Set1, edgecolor='k', label = "Iris Virginica")     # plot scatter - all array values in column 0, marker is a Square, Colour is green 
+#plt.legend(loc = "upper left")                                                                                               # plot the legend
+#plt.savefig('Figure5.jpg')
+
+
+
+
+#plt.axvline(np.mean(Iris_Virginica[:,2]), color='m', linestyle='dashdot', linewidth=1, label = "mean")      # plot a vertical dash dot line of the mean with colour magenta
+#plt.axvline(max(Iris_Virginica[:,2]), color='r', linestyle='dashed', linewidth=1, label = "max")            # plot a vertical line of maximum length of Virginica flower - dashed colour red
+#plt.axvline(min(Iris_Virginica[:,2]), color='b', linestyle='dotted', linewidth=1, label = "min")            # plot a vertical line of minimum length of Virginica flower - dotted colour blue
+#plt.scatter(Iris_Virginica[:, 2], Iris_Virginica[:, 3], marker = "s", c="green", cmap=plt.cm.Set1, edgecolor='k') # plot scatter - all array values in column 0, marker is a Square, CColour is blue, 
+#plt.legend(loc = "upper left")
+plt.show()
 
 
 
