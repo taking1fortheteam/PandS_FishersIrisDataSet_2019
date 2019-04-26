@@ -1,51 +1,142 @@
-print(__doc__)
-# Code source: Gaël Varoquaux
-# Modified for documentation by Jaques Grobler
-# License: BSD 3 clause
+''' Aidan Colon - Iris Data Set Project April 16 2019
+This project is an analysis of the Fisher Iris Data Set that was published in 1916 by Dr. Fisher in his studies. This python code and accompanying documents / files is this students dissemination of that data and reresentation in a  format that ill hopefully be easy on the eye as well as intuitive.
 
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn import datasets
-from sklearn.decomposition import PCA
+Initially I would like to import the data set in order to work on it. '''
 
-# import some data to play with
-iris = datasets.load_iris()
-X = iris.data[:, :2]  # we only take the first two features.
-y = iris.target
-
-print(iris.data)
+import numpy as np                      # Importing numpy for analyzing the data           
+import matplotlib.pyplot as plt         # Importing pyplot from matplotlib for plotting the data
+from sklearn.datasets import load_iris  #2 THis line of code retrieves the data set from scikit database hosting site
+iris = load_iris()                      #2 Let iris equal to the load iris function
+from PIL import Image                   # having to use the Python Imaging Library to import and display images in Python.          
+import pylab 
 
 
-x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
-y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
 
-plt.figure(2, figsize=(8, 6))
-plt.clf()
 
-# Plot the training points
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Set1,
-            edgecolor='k')
-plt.xlabel('Sepal length')
-plt.ylabel('Sepal width')
+                                        # By using iris.data -> this only looks at the data arrays within the iris file taken from source.
+Iris_Setosa = (iris.data[0:50])         # Iris Setosa data is contained in the first 50 elements of the array 
+Iris_Versicolor = (iris.data[51:100])   # Iris Versicolor data is contained in the elements 50 - 100 of the array 
+Iris_Virginica = (iris.data[101:150])   # Iris Virginica data is contained in elements 100 - 150 of the array 
 
-plt.xlim(x_min, x_max)
-plt.ylim(y_min, y_max)
-plt.xticks(())
-plt.yticks(())
+                                        # I am just filling up an array with the specific data for each parameter associated with each breed 
+Sepal_Length = Iris_Setosa[:, 0]        # In this case I am setting Sepal_Length equal to each value of the array (all rows (of the 0-50), column 0)
+Sepal_Width = Iris_Setosa[:, 1]         # Here I am setting Sepal Width equal to each value of the array (all rows (of the 0 to 50), column 1)  
 
-# To getter a better understanding of interaction of the dimensions
-# plot the first three PCA dimensions
-fig = plt.figure(1, figsize=(8, 6))
-ax = Axes3D(fig, elev=-150, azim=110)
-X_reduced = PCA(n_components=3).fit_transform(iris.data)
-ax.scatter(X_reduced[:, 0], X_reduced[:, 1], X_reduced[:, 2], c=y,
-           cmap=plt.cm.Set1, edgecolor='k', s=40)
-ax.set_title("First three PCA directions")
-ax.set_xlabel("1st eigenvector")
-ax.w_xaxis.set_ticklabels([])
-ax.set_ylabel("2nd eigenvector")
-ax.w_yaxis.set_ticklabels([])
-ax.set_zlabel("3rd eigenvector")
-ax.w_zaxis.set_ticklabels([])
+                                        # As verification I wanto ensure I have extracted the data correctly so Iam printing it to sreen in these lines:
+print('The following figures are the values of the Sepal Length of the Iris Setosa flower:') # Print the text
+print(Sepal_Length,'\n\n')              # Print the values in the Sepal_Length array (50 values in total)...followed by 2 carriage returns                                                    
+print('The following figures are the values of the Sepal Width of the Iris Setosa flower:')  # Print the text
+print(Sepal_Width,'\n\n')               # Print the values in the Sepal_Width array (50 values in total)...followed by 2 carriage returns                                                    
+
+# Same goes for Iris Versicolor
+
+                                        # I am just filling up an array with the specific data for each parameter associated with each breed 
+Sepal_Length = Iris_Versicolor[:, 0]        # In this case I am setting Sepal_Length equal to each value of the array (all rows (of the 0-50), column 0)
+Sepal_Width = Iris_Versicolor[:, 1]         # Here I am setting Sepal Width equal to each value of the array (all rows (of the 0 to 50), column 1)  
+
+                                        # As verification I wanto ensure I have extracted the data correctly so Iam printing it to sreen in these lines:
+print('The following figures are the values of the Sepal Length of the Iris Versicolor flower:') # Print the text
+print(Sepal_Length,'\n\n')              # Print the values in the Sepal_Length array (50 values in total)...followed by 2 carriage returns                                                    
+print('The following figures are the values of the Sepal Width of the Iris Versicolor flower:')  # Print the text
+print(Sepal_Width,'\n\n')               # Print the values in the Sepal_Width array (50 values in total)...followed by 2 carriage returns                                                    
+
+
+# And again for Iris Virginica
+
+
+                                        # I am just filling up an array with the specific data for each parameter associated with each breed 
+Sepal_Length = Iris_Virginica[:, 0]        # In this case I am setting Sepal_Length equal to each value of the array (all rows (of the 0-50), column 0)
+Sepal_Width = Iris_Virginica[:, 1]         # Here I am setting Sepal Width equal to each value of the array (all rows (of the 0 to 50), column 1)  
+
+                                        # As verification I wanto ensure I have extracted the data correctly so Iam printing it to sreen in these lines:
+print('The following figures are the values of the Sepal Length of the Iris Virginica flower:') # Print the text
+print(Sepal_Length,'\n\n')              # Print the values in the Sepal_Length array (50 values in total)...followed by 2 carriage returns                                                    
+print('The following figures are the values of the Sepal Width of the Iris Virginica flower:')  # Print the text
+print(Sepal_Width,'\n\n')               # Print the values in the Sepal_Width array (50 values in total)...followed by 2 carriage returns                                                    
+
+
+########Show image as a intro:
+
+# Image saved from : https://i.ytimg.com/vi/ywIWUfjPCyY/maxresdefault.jpg
+
+#####img = Image.open('SepalPetal.jpg') # Open thse image from local machinre
+#####img.show()  # Show the image using default image viewer on local machine. 
+#####input("Press Enter to continue...")
+
+
+# Lets try and plot the data of Sepal Length against Width
+
+fig, ax = plt.subplots(figsize=(20, 10))
+
+plt.subplot(1, 3, 1)
+plt.title('Sepal Length Versus Width of the Iris Setosa Flower', fontsize=10, fontweight='bold')
+plt.xlabel('Sepal Length')
+plt.ylabel('Sepal Width')
+plt.grid(True)
+
+
+'''from matplot lib resource online:
+
+
+matplotlib.pyplot.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=None, edgecolors=None, *, data=None, **kwargs)[source]
+
+'''
+
+plt.axvline(np.mean(Iris_Setosa[:,0]), color='m', linestyle='dashdot', linewidth=1, label="mean")
+plt.axvline(max(Iris_Setosa[:,0]), color='r', linestyle='dashed', linewidth=1, label="max")
+plt.axvline(min(Iris_Setosa[:,0]), color='b', linestyle='dotted', linewidth=1, label = "min")
+plt.scatter(Iris_Setosa[:, 0], Iris_Setosa[:, 1], marker = "v", c="red", cmap=plt.cm.Set1, edgecolor='k') # plot scatter - all array values in column 0, marker is a Square, CColour is blue, 
+plt.legend()
+
+# plot the average value on the scatter chart@: 
+
+plt.axhline(np.mean(Iris_Setosa[:,1]), color='m', linestyle='dashdot', linewidth=1)
+plt.axhline(max(Iris_Setosa[:,1]), color='r', linestyle='dashed', linewidth=1)
+plt.axhline(min(Iris_Setosa[:,1]), color='b', linestyle='dotted', linewidth=1)
+
+# Lets try and plot the data of Sepal Length against Width os Iris Versicolor FLower
+
+plt.subplot(1, 3, 2)
+plt.title('Sepal Length Versus Width of the Iris Versicolor Flower', fontsize=10, fontweight='bold')
+plt.xlabel('Sepal Length')
+plt.ylabel('Sepal Width')
+plt.grid(True)
+
+plt.axvline(np.mean(Iris_Versicolor[:,0]), color='m', linestyle='dashdot', linewidth=1, label = "mean")
+plt.axvline(max(Iris_Versicolor[:,0]), color='r', linestyle='dashed', linewidth=1, label = "max")
+plt.axvline(min(Iris_Versicolor[:,0]), color='b', linestyle='dotted', linewidth=1, label = "min")
+plt.scatter(Iris_Versicolor[:, 0], Iris_Versicolor[:, 1], marker = "o", c="blue", cmap=plt.cm.Set1, edgecolor='k') # plot scatter - all array values in column 0, marker is a Square, CColour is blue, 
+plt.legend()
+
+# I would like now to have on the one graph the max min values on both axes so that it is easily spoken about.
+plt.axhline(np.mean(Iris_Versicolor[:,1]), color='m', linestyle='dashdot', linewidth=1)
+plt.axhline(max(Iris_Versicolor[:,1]), color='r', linestyle='dashed', linewidth=1)
+plt.axhline(min(Iris_Versicolor[:,1]), color='b', linestyle='dotted', linewidth=1)
+
+# Lets try and plot the data of Sepal Length against Width os Iris Virginica FLower
+
+plt.subplot(1, 3, 3)
+plt.title('Sepal Length versus Width of the Iris Virginica Flower', fontsize=10, fontweight='bold')
+plt.xlabel('Sepal Length')
+plt.ylabel('Sepal Width')
+plt.grid(True)
+
+plt.axvline(np.mean(Iris_Virginica[:,0]), color='m', linestyle='dashdot', linewidth=1, label = "mean")
+plt.axvline(max(Iris_Virginica[:,0]), color='r', linestyle='dashed', linewidth=1, label = "max")
+plt.axvline(min(Iris_Virginica[:,0]), color='b', linestyle='dotted', linewidth=1, label = "min")
+plt.scatter(Iris_Virginica[:, 0], Iris_Virginica[:, 1], marker = "s", c="green", cmap=plt.cm.Set1, edgecolor='k') # plot scatter - all array values in column 0, marker is a Square, CColour is blue, 
+plt.legend()
+
+# I would like now to have on the one graph the max min values on both axes so that it is easily spoken about.
+plt.axhline(np.mean(Iris_Virginica[:,1]), color='m', linestyle='dashdot', linewidth=1)
+plt.axhline(max(Iris_Virginica[:,1]), color='r', linestyle='dashed', linewidth=1)
+plt.axhline(min(Iris_Virginica[:,1]), color='b', linestyle='dotted', linewidth=1)
 
 plt.show()
+
+
+# 1 https://apmonitor.com/che263/index.php/Main/PythonDataAnalysis
+
+
+
+
