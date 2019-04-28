@@ -364,12 +364,12 @@ plt.scatter(Iris_Virginica[:, 3], Iris_Virginica[:, 2], marker = "*", c="green",
 plt.subplot(4,4,16)                                                                                        # plot a subplot with 1 row 3 columns and we are working on 3rd element (right)
 plt.xlabel('Petal Width')                                                                                  # plot x axis label
 
-plt.savefig('Figure11_4X4_plots_of_all_Varieties_data_versus_all_data.jpg')
+plt.savefig('Figure11_4X4_plots_of_all_Varieties_data_versus_all_data.jpg')                                 # save the image
 
-fig.legend(loc=7)
+fig.legend(loc=7)                                                                                           # place legend to right of image
 
-plt.show()
-input("Press Enter to finish...")   
+plt.show()                                                                                                  # show the image
+input("Press Enter to finish...")                                                                           # do what it says on the tin
 
 # 1 https://apmonitor.com/che263/index.php/Main/PythonDataAnalysis
 
