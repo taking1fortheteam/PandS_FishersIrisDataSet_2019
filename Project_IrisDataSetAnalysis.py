@@ -55,16 +55,6 @@ print(Sepal_Length,'\n\n')              # Print the values in the Sepal_Length a
 print('The following figures are the values of the Sepal Width of the Iris Virginica flower:')  # Print the text
 print(Sepal_Width,'\n\n')               # Print the values in the Sepal_Width array (50 values in total)...followed by 2 carriage returns                                                    
 
-
-########Show image as a intro:
-
-# Image saved from : https://i.ytimg.com/vi/ywIWUfjPCyY/maxresdefault.jpg
-
-#####img = Image.open('SepalPetal.jpg') # Open thse image from local machinre
-#####img.show()  # Show the image using default image viewer on local machine. 
-#####input("Press Enter to continue...")
-
-
 # Lets try and plot the data of Sepal Length against Width
 
 fig = plt.figure(8, figsize=(20, 10))
